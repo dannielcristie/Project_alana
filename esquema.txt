@@ -1,0 +1,18 @@
+sistema de academia
+    
+    -cadastro:
+        nome:
+        idade:
+        telefone:
+        endereço:
+        pagamento
+    -treino:
+        
+        
+    -Avaliação:
+        estatura;
+        massa corporea;
+        percentual de gordura;
+        
+            
+    
