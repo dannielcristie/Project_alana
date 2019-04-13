@@ -1,3 +1,5 @@
+#coding=utf-8
+
 academia = {}
 
 def cadastro():
@@ -31,7 +33,6 @@ def im_c(imc):
 
     return()
     
-    
 def avaliacao():
     name_b = input('Nome do aluno:\t').lower()
     for i in academia:
@@ -43,11 +44,12 @@ def avaliacao():
             massa = float(input('Massa Corpórea(Kg):\t'))
             imc = massa/(estatura**2)
             print(im_c(imc))
-            ava.append(estatura)
-            ava.append(massa)
-            ava.append(imc)
-            academia[name_client] = ava
-        print(academia[name_client])
+            cad.append(estatura)
+            cad.append(massa)
+            cad.append(imc)
+            print(academia[name_client])
+        else:
+            print('Não cadastrado(a)!!')
             
     return()
     
@@ -56,4 +58,4 @@ def avaliacao():
 	
 cadastro()
 avaliacao()
-print(academia)
+#print(academia)
