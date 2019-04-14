@@ -5,6 +5,7 @@ dic_avaliacao = {}
 dic_treino = {}
 
 
+
 def cadastro():
     cad =[]
     name_cad = input('Digite o nome:\t').lower()
@@ -13,7 +14,6 @@ def cadastro():
     cad.append(phone)
     cad.append(idade)
     dic_cadastro[name_cad] = cad
-    print(dic_cadastro)
     return()
     
 def indice_massa(imc):
@@ -55,28 +55,67 @@ def avaliacao():
     return()
 
 def treino():
+    print('\n\tCadastra Treino do aluno\n\n')
     tre = []
     name_tre = input('Digite o nome do aluno:\t').lower()
     if  name_tre in dic_cadastro:
-        print('aluno cadastrado!\n')
-        num_ex = int(input('Quantidade de Exercicios para o aluno:\t'))
-        for i in range(num_ex):
-            exer = str(input('Exercicio:\t'))
+        print('\n\taluno cadastrado!\n\n')
+        print('\n\tExercicio para PEITO:(apenas 3)')
+        for i in range(3):
+            exer = input('Digite o Exercicio:\t')
+            tre.append(exer)    
+        
+        print('\n\tExercicio para BICEPS:(apenas 3)')
+        for i in range(3):
+            exer = input('Digite o Exercicio:\t')
             tre.append(exer)
 
+        print('\n\tExercicio para TRICEPS:(apenas 3)')
+        for i in range(3):
+            exer = input('Digite o Exercicio:\t')
+            tre.append(exer)
+        
+        print('\n\tExercicio para PERNAS:(apenas 3)')
+        for i in range(3):
+            exer = input('Digite o Exercicio:\t')
+            tre.append(exer)
+            
+        print('\n\tExercicio para COSTAS:(apenas 3)')
+        for i in range(3):
+            exer = input('Digite o Exercicio:\t')
+            tre.append(exer)
+        
+        print('\n\tExercicio para ABDOMEN:(apenas 3)')
+        for i in range(3):
+            exer = input('Digite o Exercicio:\t')
+            tre.append(exer)
     dic_treino[name_tre] = tre
     print(dic_treino)
 
+    if name_tre not in dic_cadastro:
+        print('\n\tAluno não cadastrado\n\tFavor, realizar cadastro!\n\n')
+    
     return()
-
+ 
+def exibir_cadastro():
+    for i in dic_cadastro:
+        
 
 def menu():
     opc = int(input(
-    '''     Academia Skin&Bones
+    '''     
+        = = = = = = = = = = = = = = = = = = 
+        ===================================
+              Academia Skin&Bones
         Menu:
             1 - Cadastro de novos alunos
             2 - Avaliação
             3 - Treino do Aluno
+        
+        ==================================
+        = = = = = = = = = = = = = = = = = 
+        
+        Digite o numero corresponde a opção:  
     '''))
     if opc == 1:
         cadastro()
