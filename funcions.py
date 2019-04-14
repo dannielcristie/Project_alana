@@ -1,19 +1,22 @@
 #coding=utf-8
 
-academia = {}
+dic_cadastro = {}
+dic_avaliacao = {}
+dic_treino = {}
+
 
 def cadastro():
     cad =[]
-    name_client = input('Digite o nome:\t').lower()
+    name_cad = input('Digite o nome:\t').lower()
     phone = int(input('Telefone:\t'))
     idade = int(input('Idade:\t'))
     cad.append(phone)
     cad.append(idade)
-    academia[name_client] = cad
-    
+    dic_cadastro[name_cad] = cad
+    print(dic_cadastro)
     return()
     
-def im_c(imc):
+def indice_massa(imc):
     if imc < 16:
 	    print("Magreza grave")
     elif imc < 17:
@@ -25,7 +28,7 @@ def im_c(imc):
     elif imc < 30:
 	    print("Sobrepeso")
     elif imc < 35:
-	    print("Obesidade Grau I")
+        print('sei la')
     elif imc < 40:
 	    print("Obesidade Grau II (severa)")
     else:
@@ -34,28 +37,54 @@ def im_c(imc):
     return()
     
 def avaliacao():
-    name_b = input('Nome do aluno:\t').lower()
-    for i in academia:
-        if name_b in academia:
-            name_client = name_b
-            ava=[]
-            print('aluno cadastro')
-            estatura = float(input('estatura(m):\t'))
-            massa = float(input('Massa Corpórea(Kg):\t'))
-            imc = massa/(estatura**2)
-            print(im_c(imc))
-            cad.append(estatura)
-            cad.append(massa)
-            cad.append(imc)
-            print(academia[name_client])
-        else:
-            print('Não cadastrado(a)!!')
-            
+    ava = []
+    name_ava = input('Digite o nome do aluno:\t').lower()
+    if  name_ava in dic_cadastro:
+        print('aluno cadastrado!\n')
+        massa = float(input('Massa corporea(kg):\t'))
+        estatura =  float(input('Estatura(m):\t'))
+        imc = round(float(massa/estatura**2))
+        print('\nSeu IMC é: ',imc,indice_massa(imc))
+        ava.append(massa)
+        ava.append(estatura)
+        ava.append(imc)
+        dic_avaliacao[name_ava] = ava
+        print(dic_avaliacao)
+    else: 
+        print('Aluno não cadastrado\nFavor, realizar cadastro.')
     return()
-    
-    
-    
-	
-cadastro()
-avaliacao()
-#print(academia)
+
+def treino():
+    tre = []
+    name_tre = input('Digite o nome do aluno:\t').lower()
+    if  name_tre in dic_cadastro:
+        print('aluno cadastrado!\n')
+        num_ex = int(input('Quantidade de Exercicios para o aluno:\t'))
+        for i in range(num_ex):
+            exer = str(input('Exercicio:\t'))
+            tre.append(exer)
+
+    dic_treino[name_tre] = tre
+    print(dic_treino)
+
+    return()
+
+
+def menu():
+    opc = int(input(
+    '''     Academia Skin&Bones
+        Menu:
+            1 - Cadastro de novos alunos
+            2 - Avaliação
+            3 - Treino do Aluno
+    '''))
+    if opc == 1:
+        cadastro()
+    elif opc ==2:
+        avaliacao()
+    elif opc == 3:
+        treino()
+    else:
+        print('Opcão Invalida!!')
+    return()
+
