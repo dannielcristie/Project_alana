@@ -3,16 +3,21 @@
 dic_cadastro = {
     'danniel':[981187186,22]    
 }
-dic_avaliacao = {}
-dic_treino = {}
+dic_avaliacao = {
+    'danniel':[60,1.81,21]
+}
+dic_treino = {
+    'danniel':['supino reto','supino inclinado','supino declinado','rosca direta','rosca alternaeda','rosca scott','polia alta','testa','unilateral','leg 45','hack','agachemento','pulley','remada baixa','remada alta','abd infra', 'abd supra','prancha']
+}
 
 
 
 def cadastro():
     cad =[]
-    name_cad = input('Digite o nome:\t').lower()
-    phone = int(input('Telefone:\t'))
-    idade = int(input('Idade:\t'))
+    print('\tCadastrar novo aluno')
+    name_cad = input('\n\tDigite o nome:\t').lower()
+    phone = int(input('\tTelefone:\t'))
+    idade = int(input('\tIdade:\t'))
     cad.append(phone)
     cad.append(idade)
     dic_cadastro[name_cad] = cad
@@ -30,7 +35,7 @@ def indice_massa(imc):
     elif imc < 30:
 	    print("Sobrepeso")
     elif imc < 35:
-        print('sei la')
+        print('Obesidade Grau I')
     elif imc < 40:
 	    print("Obesidade Grau II (severa)")
     else:
@@ -40,19 +45,22 @@ def indice_massa(imc):
     
 def avaliacao():
     ava = []
+    print('\tAvaliação do aluno')
     name_ava = input('Digite o nome do aluno:\t').lower()
     if  name_ava in dic_cadastro:
         print('aluno cadastrado!\n')
         massa = float(input('Massa corporea(kg):\t'))
         estatura =  float(input('Estatura(m):\t'))
         imc = round(float(massa/estatura**2))
+        imc_clas = str(indice_massa(imc))
         ava.append(massa)
         ava.append(estatura)
         ava.append(imc)
+        ava.append(imc_clas)
         dic_avaliacao[name_ava] = ava
        
     else: 
-        print('Aluno não cadastrado\nFavor, realizar cadastro.')
+        print('\n\tAluno não cadastrado\n\tFavor, realizar cadastro.')
     return
 
 def treino():
