@@ -1,42 +1,39 @@
-def main():
-    # copie abaixo a funcao main dada anteriormente
+'''
+dic = {}
+a = input('digita ai')
+b = input('digita ai')
 
-class Dicionario:
+dic['danniel'] = [a,b]
+
+print(dic)
+'''
+
+
+class Dic:
     def __init__(self):
-        self.chave = []
-        self.valor = []
+        self.chaves = []
+        self.dados = []
+    def inserir(self,chave,dado):
+        self.chaves.append(chave)
+        self.dados.append(dado)
 
-    def __str__(self):
-        tam = len(self.chave)
-        if tam == 0:
-            return '{}'
+dic = Dic()
 
-        dic = '{%s:%s'%(str(self.chave[0]),str(self.valor[0]))
-        for i in range(1, len(self.chave)):
-            dic += ',%s:%s'%(str(self.chave[i]),str(self.valor[i]))
-        dic += '}'
-        return dic
+dic.inserir('danniel',30081996)
 
-    def procura(self, c):
-        ''' (chave) -> int
-            Recebe uma chave e devolve o indice da chave, caso
-            exista e None caso contrario '''
-        for i in range(len(self.chave)):
-            if c == self.chave[i]:
-                return i
-        return None
+print(dic)
 
-    def insere(self, c, v):
-        ''' (chave, valor) -> None
-            altera o valor do par chave:valor para chave:v no
-            dicionario caso a chave exista ou cria o par chave:v
-            caso a chave ainda nao esteja no dicionario. '''
-        # escreva abaixo o codigo para esse metodo
 
-    def pega_valor(self, c):
-        ''' (chave) -> valor
-            Retorna o valor de uma chave, caso exista, ou None '''
 
-        # escreva abaixo o codigo para esse metodo
 
-main()
+
+
+
+
+
+
+
+
+
+
+
